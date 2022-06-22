@@ -1,0 +1,86 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace test1
+{
+    internal class Program
+    {
+
+
+
+        static bool play = false;
+        static string startchoice;
+        static int trys;
+        static void Main(string[] args)
+        {
+            Start();
+            if (play == false)
+            {
+                Console.WriteLine("Do you want to play again?");
+                startchoice = Console.ReadLine();
+                if (startchoice == "y" || startchoice == "Y")
+                {
+                    play = true;
+                    Reset();
+                }
+            }
+
+            
+
+   
+       
+        }
+        static void Start()
+        {
+            Console.WriteLine("Are your ready?");
+            startchoice = Console.ReadLine();
+            if (startchoice == "y" || startchoice == "Y")
+            {
+                play = true;
+                Game();
+            }
+        }
+        static void Game()
+        {
+            int rnd;
+            
+            Console.WriteLine("Range (ex.1000)..");
+            int number = int.Parse(Console.ReadLine());
+            Random random = new Random();
+            
+            rnd = random.Next(0,number);
+            while (play)
+            {
+                Console.WriteLine("Guess!");
+                int choice = int.Parse(Console.ReadLine());
+                if (choice == rnd)
+                {
+                    Console.WriteLine("Good Job You guessed it with " + trys + "trys !") ;
+                    play = false;
+                    
+                    
+                    
+                }
+                else if (choice > rnd)
+                {
+                    trys++;
+                    Console.WriteLine("Lower");
+                }
+                else if (rnd> choice)
+                {
+                    trys++;
+                    Console.WriteLine("Higher");
+                }
+            }
+            
+
+        }
+        public static void Reset()
+        {
+            Game();
+        }
+    }
+}
