@@ -1,4 +1,3 @@
 - Welcome !
 - My name is Alexander 
-- Currently learning C#
-- If you want to contact me feel free to do so at facebookagent007@abv.bg
+I do thing in python
